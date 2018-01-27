@@ -1,9 +1,12 @@
 package com.codecool.dockerworkshop2;
 
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "myusers")
 public class User {
 
     @Id
