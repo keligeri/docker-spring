@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  app:
+    image: app
+    container_name: "app"
+    build: .
+    depends_on:
+      - my-db
+    ports:
+      - "9875:9875"
+    restart: always
+  
+  my-db:
+    image: postgres
+    restart: always
+    ports:
+      - 5000:5432
+    environment:
+     - POSTGRES_PASSWORD=postgres
+     - POSTGRES_USER=postgres
+     - POSTGRES_DB=postgres

@@ -23,6 +23,15 @@ public class Controller {
     }
 
     @CrossOrigin
+    @GetMapping("/add")
+    public User add(@RequestParam(value = "name", required = false) String name){
+        User user = new User();
+        user.setName(name);
+        userRepository.save(user);
+        return user;
+    }
+
+    @CrossOrigin
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public List<User> list(){
         return userRepository.findAll();
